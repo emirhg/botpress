@@ -2,6 +2,13 @@ const base = require('./_base')
 const utils = require('./_utils')
 
 function renderElement(data, channel) {
+  if (channel === 'twilio'){
+    return {
+      type: 'text',
+      text: `${data.title}\n${data.BOT_URL}${data.file}`
+    }
+  }
+
   return utils.extractPayload('file', data)
 }
 
